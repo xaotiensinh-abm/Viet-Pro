@@ -1,0 +1,107 @@
+# 🧠 Viet-Pro Brain — Session 2026-02-27
+
+## Session Summary
+**Date**: 2026-02-27 (08:00 → 16:08)
+**Objective**: Tạo knowledge/modules cho 6 pipeline mới + tối ưu toàn bộ dự án → đẩy GitHub
+
+## MAJOR Changes (Architecture-level)
+
+### 1. SKILL.md Upgraded: v1.0 → v3.0
+- **Trước**: 11 modules, chỉ article/content, dispatch đơn giản
+- **Sau**: 23 modules, 7 pipelines (A-G), adaptive Content Type Router
+- **Lý do**: novel-writer.md workflow v3.0 mô tả 6 pipelines nhưng SKILL.md cũ không phản ánh
+
+### 2. Novel-Writer Sub-Skill Slimmed
+- **Trước**: Standalone, duplicate rules với parent SKILL.md
+- **Sau**: Fiction Extension, kế thừa 6 Rules từ parent, chỉ giữ fiction-specific rules
+- **Header mới**: "Là extension của Viet-Pro v3.0"
+
+### 3. Anti-AI Engine R1 Module Created
+- **Trước**: Logic anti-AI nằm rải rác trong Q2 + knowledge files
+- **Sau**: Module riêng `anti-ai-engine.md` — 25 AI Tells, substitution table, 10-question checkpoint
+- **Pipeline-specific flavors** cho 7 pipelines
+
+## Files Created This Session (26 new files)
+
+### Modules (13 new → total 23)
+```
+modules/anti-ai-engine.md     ← R1: Anti-AI Engine core
+modules/platform-linkedin.md   ← H2: LinkedIn
+modules/platform-tiktok.md     ← H3: TikTok/Reels
+modules/platform-email.md      ← H4: Email marketing
+modules/platform-twitter.md    ← H5: Twitter/X threads
+modules/platform-blog-seo.md   ← H6: Blog SEO
+modules/platform-zalo.md       ← H7: Zalo OA (70M+ users)
+modules/platform-instagram.md  ← H8: Instagram visual-first
+modules/edu-writer.md          ← Pipeline C: EduWriter
+modules/slide-writer.md        ← Pipeline D: SlideWriter
+modules/research-writer.md     ← Pipeline E: ResearchWriter
+modules/social-writer.md       ← Pipeline F: SocialWriter
+modules/script-writer.md       ← Pipeline G: ScriptWriter
+```
+
+### Knowledge (7 new → total 21)
+```
+knowledge/edu-pedagogy-bloom.md        ← Bloom's Taxonomy, BOPPPS, 5E
+knowledge/presentation-design-vn.md    ← Slide design, VN culture
+knowledge/academic-writing-vn.md       ← APA/Harvard/IEEE, hedging VN
+knowledge/social-media-vn-2025.md      ← Platform demographics VN 2025
+knowledge/cross-platform-repurpose.md  ← Content atomization
+knowledge/golden-samples-vn.md         ← 5 bài mẫu + WHY analysis
+knowledge/vietnamese-idioms-db.md      ← 90+ thành ngữ, 9 chủ đề
+```
+
+### Documentation (5 new)
+```
+SKILL.md       ← Rewritten v1.0 → v3.0
+README.md      ← Project overview + architecture
+USERGUIDE.md   ← Comprehensive user guide
+CHANGELOG.md   ← Version history v1.0/v2.0/v3.0
+.gitignore     ← Git config
+```
+
+### Infrastructure (1 new)
+```
+examples/test-prompts.md  ← Test tất cả 7 pipelines
+```
+
+## Files Modified This Session
+```
+novel-writer/SKILL.md       ← Slimmed to Fiction Extension
+social-media-vn-2025.md     ← Added Last Updated + refresh triggers
+```
+
+## Files Moved This Session
+```
+deep-research-truyện tu tiên.md → novel-writer/examples/
+```
+
+## Design Decisions
+
+1. **7 Pipelines thay vì 6**: Thêm Pipeline G (ScriptWriter) cho video/podcast scripts — video content = king 2025-2026
+2. **Zalo Module (H7)**: 70M+ users VN nhưng trước đó không có module — gap lớn nhất
+3. **Golden Samples**: Teach-by-example approach — 5 bài mẫu thực tế hay hơn 100 rules trừu tượng
+4. **Vietnamese Idioms DB**: 90+ thành ngữ categorized → agent chọn nhanh theo context thay vì random
+5. **R1 Anti-AI Engine riêng**: Trước đó logic nằm rải rác → centralize cho tất cả pipelines
+
+## Gotchas & Lessons
+
+1. **3 SKILL files conflicting** là vấn đề lớn nhất — cần single source of truth
+2. **Module naming convention**: H1-H8 cho platforms, V1-V3 cho style, Q1-Q3 cho quality, letter cho pipelines
+3. **Knowledge resolution order**: Workspace → Global Skill → Global Modules
+4. **social-media-vn-2025.md** cần mechanism refresh — data thay đổi nhanh → thêm "Update Triggers"
+
+## Deployment
+
+- **GitHub**: https://github.com/xaotiensinh-abm/Viet-Pro
+- **Branch**: master
+- **Status**: Public repo, 52 files, 1 commit
+
+## Next Session Ideas
+
+- [ ] Tạo sample outputs cho Pipeline C-F (not just test prompts)
+- [ ] Thêm Pipeline H: CopyWriter (ads, landing pages)
+- [ ] Thêm Pipeline I: TranslationWriter (VN ↔ EN giữ tone)
+- [ ] Thêm platform Threads, YouTube Community
+- [ ] Test thực tế: chạy test-prompts qua skill và đánh giá quality
+- [ ] Tích hợp với novel-writer.md workflow — sync module list
